@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+h1, a {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+a {
+    font-weight: 600;
+}
+
+.grid-container2 img {
+    width:100px;
+    height:100px;
+}
+
+#container {
+    border: 2px solid;
+    margin: 50px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    position: relative; 
+    background-color: #16423C;
+}
+
+#container h1 {
+    color: white;
+}
+#container2 {
+    border: 2px solid;
+    margin: -50px 50px;
+    padding: 20px;
+    position: relative; 
+    background-color: #cFF4D2;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 7fr 1fr 2fr;
+    gap: 1%;
+}
+
+#images {
+    align-items: center;
+    text-align: center;
+}
+
+#plus {
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
+}
+
+#pfp {
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#pfp p {
+    border: 2px solid;
+    padding: 2px;
+}
+
+.grid-container2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 5%;
+}
+
+.grid-container2 #images {
+    border: 2px solid;
+    padding: 10px;
+}
+
+.grid-container3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 5%;
+}
+
+.grid-container3 .link {
+    margin-top: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.grid-container3 .link a {
+    font-size: 30px;
+    text-decoration: none;
+}
+
+#final {
+    position: relative;
+    left: 50px;
+    bottom: -45px;
+    width: 92.7%;
+    background-color: #16423C;
+    padding: 5px;
+    display: block;
+}
+
+#final a {
+    color: white;
+    text-decoration: none;
+}
+  
+#final a:hover {
+    transition: 0.5s;
+    animation: border-animation 2s infinite;
+    font-size: 20px;
+}
