@@ -32,7 +32,7 @@ a {
     background-color: #16423C;
 }
 
-#container h1 {
+#container h1:hover {
     color: white;
 }
 #container2 {
