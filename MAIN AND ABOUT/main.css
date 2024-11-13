@@ -93,7 +93,7 @@ a {
     align-items: center;
 }
 
-.grid-container3 .link a {
+.grid-container3 .link a:hover {
     font-size: 30px;
     text-decoration: none;
 }
