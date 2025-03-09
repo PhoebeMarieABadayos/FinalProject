@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Drowning Well-Being</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <style>
+        /* Quiz Styles */
+        #quiz-container {
+            margin: 20px 50px;
+            padding: 20px;
+            border: 2px solid #ddd;
+            background-color: #f9f9f9;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        #results {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+
+        #submit-btn, #next-btn {
+            padding: 10px 20px;
+            background-color: #16423C;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        #submit-btn:hover, #next-btn:hover {
+            background-color: #123530;
+        }
+    </style>
 </head>
 <body>
     <div id="container">
@@ -25,7 +71,7 @@
                 <p>Phoebe Badayos</p>
             </div>
         </div>
-    <div class="grid-container3">
+        <div class="grid-container3">
             <div class="link">
                 <a href="#">Prevention</a>
             </div>
@@ -42,7 +88,6 @@
                 <a href="#">Effect</a>
             </div>
         </div>
-
         <div class="grid-container2">
             <div id="images">
                 <img src="https://assets.onecompiler.app/42uxaskcb/42uxaqfqr/prevent.png" alt="Prevention" />
@@ -66,8 +111,98 @@
             </div>
         </div>
     </div>
+
+    <div id="quiz-container">
+        <h2>Test Your Knowledge on SDG 3!</h2>
+        <form id="quiz-form">
+            <div class="question">
+                <p>1. What does SDG 3 primarily focus on?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> a) Quality Education</label>
+                    <label><input type="radio" name="q1" value="b"> b) Good Health and Well-being</label>
+                    <label><input type="radio" name="q1" value="c"> c) Clean Energy</label>
+                    <label><input type="radio" name="q1" value="d"> d) Gender Equality</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>2. Which of the following is NOT a key aspect of SDG 3?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> a) Reducing maternal mortality</label>
+                    <label><input type="radio" name="q2" value="b"> b) Promoting mental health</label>
+                    <label><input type="radio" name="q2" value="c"> c) Ending poverty </label>
+                    <label><input type="radio" name="q2" value="d"> d) Combating communicable diseases</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>3. What is a major contributing factor to poor health and well-being?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> a) Access to quality education</label>
+                    <label><input type="radio" name="q3" value="b"> b) Lack of clean water and sanitation</label>
+                    <label><input type="radio" name="q3" value="c"> c) Sustainable economic growth</label>
+                    <label><input type="radio" name="q3" value="d"> d) Gender inequality</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>4. How can individuals contribute to achieving SDG 3?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> a) By ignoring their own health needs</label>
+                    <label><input type="radio" name="q4" value="b"> b) By adopting a healthy lifestyle and promoting well-being</label>
+                    <label><input type="radio" name="q4" value="c"> c) By focusing solely on economic growth</label>
+                    <label><input type="radio" name="q4" value="d"> d) By contributing to environmental pollution</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>5. Why is addressing mental health important for achieving SDG 3?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> a) It has no relation to SDG 3</label>
+                    <label><input type="radio" name="q5" value="b"> b) It only affects a small portion of the population</label>
+                    <label><input type="radio" name="q5" value="c"> c) It is a crucial component of overall well-being and can impact physical health</label>
+                    <label><input type="radio" name="q5" value="d"> d) It is only important for developed countries</label>
+                </div>
+            </div>
+            <button type="button" id="submit-btn">Submit</button>
+        </form>
+        <div id="results"></div>
+    </div>
+
     <div id="final">
         <a href="about.html"><h1>About Us</h1></a>
     </div>
+
+    <script>
+        const quizForm = document.getElementById('quiz-form');
+        const resultsDiv = document.getElementById('results');
+        const submitBtn = document.getElementById('submit-btn');
+
+        const correctAnswers = {
+            q1: 'b',
+            q2: 'c',
+            q3: 'b',
+            q4: 'b',
+            q5: 'c'
+        };
+
+        submitBtn.addEventListener('click', () => {
+            let score = 0;
+            let resultsHTML = '';
+
+            for (let i = 1; i <= 5; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (answer) {
+                    if (answer.value === correctAnswers[`q${i}`]) {
+                        score++;
+                        resultsHTML += `<p class="correct">Question ${i}: Correct!</p>`;
+                    } else {
+                        resultsHTML += `<p class="incorrect">Question ${i}: Incorrect.</p>`;
+                    }
+                } else {
+                    resultsHTML += `<p class="incorrect">Question ${i}: Not answered.</p>`;
+                }
+            }
+
+            resultsHTML += `<p>Final Score: ${score}/5</p>`;
+            resultsDiv.innerHTML = resultsHTML;
+        });
+    </script>
 </body>
 </html>
